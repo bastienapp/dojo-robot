@@ -16,6 +16,15 @@ public class RobotTest extends TestCase {
 
 	@Test
 	public void test2() throws Exception {
-		assertEquals(13, Robot.move(5, "EESSWSSWNEEESS"));
+		assertEquals(13, Robot.move(5, "EESSWSSWNEEES"));
+	}
+
+	@Test
+	public void testOutOfBond() throws Exception {
+        try {
+		    Robot.move(3, "SW");
+        } catch (IndexOutOfBoundsException e) {
+            assertEquals("Robot is out of bounds", e.getMessage());
+        }
 	}
 }

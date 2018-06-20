@@ -19,14 +19,14 @@ Soit une grille de taille 3 et la série de direction "EESNSSW".
 
 Nous avons le robot effectuant le parcours suivant (à gauche la représentation graphique, et à droite la grille) :
 
-	N=3, itinerary="EESNSSW"
+	n=3, itinerary="EESNSSW"
 	╔═════╗ 
 	║ ──┐ ║ 	{1,1,1},	return=6
 	║ ..│ ║  	{O,O,1},
 	║ .─┘ ║ 	{O,1,1}
 	╚═════╝
 
-	N=5, itinerary="EESSWSSWNEEESS"
+	n=5, itinerary="EESSWSSWNEEES"
 	╔═══════╗
 	║ ──┐.. ║ 	{1,1,1,0,0},	return=13
 	║ ..│.. ║ 	{0,0,1,0,0},
@@ -34,6 +34,8 @@ Nous avons le robot effectuant le parcours suivant (à gauche la représentation
 	║ ┌┼─┐. ║ 	{1,1,1,1,0},
 	║ └┘.│. ║ 	{1,1,0,1,0}
 	╚═══════╝
+
+Bonus : si l'itinéraire fait sortir le robot du tableau, relever une IndexOutOfBoundsException avec le message "Robot is out of bounds".
 
 Rappel des commandes junit :
 
