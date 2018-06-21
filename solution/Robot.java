@@ -2,51 +2,35 @@ import java.util.Arrays;
 
 class Robot {
 
-	public static int move(int size, String itinerary) throws IndexOutOfBoundsException {		
-		int[][] grid = new int[size][size];
-		char[] direction = itinerary.toCharArray();
+	public static int move(int n, String itinerary) throws IndexOutOfBoundsException, IllegalArgumentException {
+		if (n <= 0) {
+			throw new IllegalArgumentException("n <= 0");
+		}
+		int[][] grid = new int[n][n];
 		int x = 0;
 		int y = 0;
+		grid[y][x] = 1; // robot starts here
 		int count = 1;
-		grid[y][x] = 1;
-		for (int i = 0; i < direction.length; i++) {
-            boolean hasError = false;
-			switch (direction[i]) {
+		for (int i = 0; i < itinerary.length(); i++) {
+			switch (itinerary.charAt(i)) {
 				case 'N':
-					if (y - 1 >= 0) {
-						y--;
-					} else {
-                        hasError = true;
-                    }
+					y--;
 					break;
-
 				case 'S':
-					if (y + 1 < size) {
-						y++;
-					} else {
-                        hasError = true;
-                    }
+					y++;
 					break;
-
 				case 'W':
-					if (x - 1 >= 0) {
-						x--;
-					} else {
-                        hasError = true;
-                    }
+					x--;
 					break;
-
 				case 'E':
-					if (x + 1 < size) {
-						x++;
-					} else {
-                        hasError = true;
-                    }
+					x++;
 					break;
 			}
-            if (hasError) {
+            if (x < 0 || x >= n || y < 0 || y >= n) {
                 throw new IndexOutOfBoundsException("Robot is out of bounds");
-            } else if (grid[y][x] == 0) {
+            }
+			if (grid[y][x] == 0) {
+				// robot never been here
 				grid[y][x] = 1;
 				count++;
 			}

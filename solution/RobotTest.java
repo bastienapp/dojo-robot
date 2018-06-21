@@ -27,4 +27,13 @@ public class RobotTest extends TestCase {
             assertEquals("Robot is out of bounds", e.getMessage());
         }
 	}
+
+	@Test
+	public void testIllegalArgument() throws Exception {
+        try {
+		    Robot.move(-1, "E");
+        } catch (IllegalArgumentException e) {
+            assertEquals("n <= 0", e.getMessage());
+        }
+	}
 }
