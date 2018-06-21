@@ -1,6 +1,6 @@
 # Robot
 
-Dans une grille de taille n, vous controllez un robot grace à une série de direction contenue dans une chaine de caractère :
+Dans une matrice de taille n, vous controllez un robot grace à une série de direction contenue dans une chaine de caractère :
 
 * N correspond à nord
 * S correspond à sud
@@ -8,7 +8,7 @@ Dans une grille de taille n, vous controllez un robot grace à une série de dir
 * W correspond à ouest
 
 Le robot commence par le point le plus en haut à gauche de la grille, en (0, 0).
-A chaque direction, le robot se déplace d'une case dans la grille (si cette direction est possible, sinon il reste sur place).
+A chaque direction, le robot se déplace d'une case dans la grille.
 
 Vous devez retourner le nombre de cases visitées par le robot (un robot peut passer plusieurs fois sur la même case, mais elle ne sera comptée comme visitée qu'une seul fois).
 La première case (0, 0) est considérée comme visitée.
@@ -35,7 +35,10 @@ Nous avons le robot effectuant le parcours suivant (à gauche la représentation
 	║ └┘.│. ║ 	{1,1,0,1,0}
 	╚═══════╝
 
-Bonus : si l'itinéraire fait sortir le robot du tableau, relever une IndexOutOfBoundsException avec le message "Robot is out of bounds".
+Bonus :
+
+* si l'itinéraire fait sortir le robot du tableau, relever une IndexOutOfBoundsException avec le message "Robot is out of bounds".
+* si n est <= 0, relever une IllegalArgumentException avec le message "n <= 0".
 
 Rappel des commandes junit :
 
